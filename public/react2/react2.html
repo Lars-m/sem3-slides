@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" media="all" href="../theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="../theme/css/phone.css">
+
+  <script src="code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="../js/jquery-1.11.1.min.js"></script>
+  <script src="../js/presenter.js"></script>
+
+  <base target="_blank">
+  <style>
+    code {
+      color: darkblue;
+    }
+  </style>
+
+  <!-- This opens all links in a new tab. -->
+  <script data-main="../js/slides" src="../js/require-1.0.8.min.js"></script>
+
+  <!--In order to have more than one slideset in the project-->
+  <script src="slides.js"></script>
+
+</head>
+
+<!--Setup Angular for the full slide-set-->
+<!--<body ng-app="SlideApp" style="opacity: 0">-->
+
+<body style="opacity: 0">
+
+  <slides class="layout-widescreen">
+
+    <slide class="title-slide segue nobackground" style="background: #00163B">
+      <aside class="gdbar"><img src="../images/logo.png" style="width: 200px;"></aside>
+      <hgroup class="auto-fadein" style="color: white;">
+        <div style="float: left;">
+          <h1 data-config-title></h1>
+          <h2 data-config-subtitle></h2>
+          <p data-config-presenter></p>
+        </div>
+        <div style="float:left;margin-left: 5em;"><img src="images/React-JS.png" style="float:left;width: 200px;">
+        </div>
+      </hgroup>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>React - The Virtual Dom</h2>
+      </hgroup>
+      <article>
+        <p style="margin-top: -30px;">Manipulating the DOM is a fundamental part of all modern, interactive web.
+          DOM manipulation unfortunately, is much slower than plain JS-operations</p>
+        <p>React's solution to this problem, is a Virtual Dom. For every DOM object, there is a corresponding "virtual
+          DOM
+          object."
+          A virtual DOM object is a representation of a DOM object, like a lightweight copy.</p>
+        <div class="row">
+          <div class="col-md-7">
+            <ul>
+              <li>The entire virtual DOM gets updated</li>
+              <li>The virtual DOM gets compared to what it looked like before you updated it.
+                React figures out which objects have changed
+              </li>
+              <li>The changed objects, and the changed objects only, get updated on the real DOM</li>
+              <li>Changes on the real DOM cause the screen to change</li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <img src="images/virtualDom.PNG" style="width: 100%" />
+          </div>
+        </div>
+        <footer class="source">
+          <a href="http://stackoverflow.com/questions/21109361/why-is-reacts-concept-of-virtual-dom-said-to-be-more-performant-than-dirty-mode">
+            The Virtual Dom on StackOverflow
+          </a> &nbsp;, &nbsp;&nbsp; <a href="https://www.codecademy.com/articles/react-virtual-dom">The Virtual Dom</a>
+        </footer>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2><a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a></h2>
+      </hgroup>
+      <article>
+        <div style="font-size: 0.9em;margin-top: -30px;">
+          <p> The tag-syntax used by React is called JSX, and it is a <em>syntax extension</em> to JavaScript.<br />
+            It's React's recommended way to describe what the UI should look like. </p>
+          <p>Without JSX (and Babel) you would have to write React like 
+            <a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=G4QwTgBAzgLpC8EBEAJApgGwweyQbgChRIQJEAeACwEYA-Ab1jAF9yB6G2giHiIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Ces2017%2Creact%2Cenv&prettier=false&targets=&version=7.4.2">
+            this</a></p>
+          <p>JSX is a kind template language, but comes with the full power of JavaScript.
+            JSX produces React "elements", which is what can be rendered by React</p>
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <img style="margin-left:20px; width:100%" src="images/JSX.PNG" />
+          </div>
+          <div class="col-md-4" style="font-size: 70%;padding-left: 40px;padding-top: 4em;font-style: italic">
+            <p>With React v16.x support was added for <a href="https://reactjs.org/docs/fragments.html">Fragments</a></p>
+            <p>With Fragments you don't need to add and additional DOM-element (the div in this figure) in order to
+              return a group of children</p>
+          </div>
+        </div>
+
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2><a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a></h2>
+      </hgroup>
+      <article>
+        <div>
+          <div id="jsx"></div>
+        </div>
+      </article>
+    </slide>
+    <slide>
+      <hgroup>
+        <h2><a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX vs something you know</a></h2>
+      </hgroup>
+      <article>
+        <div>
+          <p>What is this? How is it similar to JSX, and how is it NOT similar to JSX?</p>
+            <pre class="prettyPrint pre18">
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;First JSP&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;%
+    double num = Math.random();
+    if (num &gt; 0.95) {
+  %&gt;
+      &lt;h2&gt;You'll have a luck day!&lt;/h2&gt;&lt;p&gt;(&lt;%= num %&gt;)&lt;/p&gt;
+  &lt;%
+    } else {
+  %&gt;
+      &lt;h2&gt;Well, life goes on ... &lt;/h2&gt;&lt;p&gt;(&lt;%= num %&gt;)&lt;/p&gt;
+  &lt;%
+    }
+  %&gt;
+  &lt;a href=&quot;&lt;%= request.getRequestURI() %&gt;&quot;&gt;&lt;h3&gt;Try Again&lt;/h3&gt;&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        </div>
+      </article>
+    </slide>
+
+
+    <slide>
+      <hgroup>
+        <h2>React - <a href="https://facebook.github.io/react/docs/components-and-props.html">Components</a></h2>
+      </hgroup>
+      <article>
+        <div style="font-size: 0.9em;">
+          <p style="margin-top: -25px;">Components are the heart and soul of React. They let you split the UI into
+            independent, reusable pieces, and
+            think about each piece in isolation.</p>
+          <p>Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props")
+            and return React elements describing what should appear on the screen.</p>
+        </div>
+        <div class="row build">
+          <div class="col-md-6">
+            <p style="font-size: 0.9em; color: #2a6496">Component written as a ES6 Class<br />
+              <span style="font-size: small">Use only when features from base class is needed (often state)</span>
+            </p>
+
+            <pre class="prettyPrint pre18">
+class Welcome extends React.Component {
+  render() {
+    return <b>(</b>
+         &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;
+        <b>)</b>
+  }}</pre>
+            <p style="font-size: 0.9em; color: #2a6496">Functional Component as a JS-function<br />
+
+            </p>
+            <pre class="prettyPrint pre18">
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;
+}</pre>
+            <span style="font-size: small">
+              This is a valid React component because it accepts a single "props" object argument
+              with data and returns a React element</span>
+          </div>
+          <div class="col-md-6">
+            <p style="color:#2a6496;font-size: 0.9em;">Important things to remember:</p>
+            <div style="font-size: smaller">
+              <p>
+                Always start component names with a capital letter. <code>&lt;div /&gt;</code>, as an example,
+                represents
+                a DOM tag, but <code>&lt;Welcome /&gt;</code>
+                represents a component.
+
+              </p>
+              <p>
+                The parentheses around the return statement are needed because of JavaScript's automatic semicolon
+                insertion.
+                Without them, JavaScript would ignore all following lines.<br />
+                If the JSX is a one-liner (on the same line as the return statement) parentheses are not needed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </slide>
+    <slide>
+      <hgroup>
+        <h2>React Components</h2>
+      </hgroup>
+      <article>
+        <p style="margin-top: -30px;"><a href="https://facebook.github.io/react/docs/components-and-props.html#composing-components">
+            Composing React Components</a> - Like playing with Lego :-)</p>
+        <div class="row">
+          <div class="col-md-8">
+            <pre class="prettyPrint pre20">
+
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome name=&quot;Sara&quot; /&gt;
+      &lt;Welcome name=&quot;Lucas&quot; /&gt;
+      &lt;Welcome name=&quot;Emma&quot; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementById('root')
+);</pre>
+          </div>
+          <div class="col-md-4">
+            <img style="width: 90%" src="images/likeLego.PNG">
+          </div>
+        </div>
+      </article>
+    </slide>
+
+
+    <script>
+      $(document).ready(function () {
+        $("#jsx").exPresenter({
+          directory: "examples/jsx/",
+          codeClass: "prettyprint pre18",
+          codeStyle: "float:left;margin-right:5px;margin-bottom:5px;width:50%;min-height: 300px;background-color:white;",
+          presenterStyle: "float:right;width:47%;height: 120px;font-family:monospaced;margin-bottom:10px;margin-top:-30px;",
+          commentStyle: "float:right;width:47%;font-size:20px;"
+        });
+      });
+    </script>
+
+
+    <slide>
+      <hgroup>
+        <h2>Props</h2>
+      </hgroup>
+      <article>
+        <div class="row" style="margin-top:-25px;">
+          <div class="col-md-5">
+            <pre>
+//Component using <b>props</b>
+function Welcome(<b>props</b>) {
+  return &lt;h1&gt; Hello, 
+      <b>{props.name}</b>
+  &lt;/h1&gt;;
+}
+
+//Passing values to props
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome <b>name=&quot;Sara&quot;</b> /&gt;
+      &lt;Welcome <b>name=&quot;Cahal&quot;</b> /&gt;
+      &lt;Welcome <b>name=&quot;Edite&quot;</b> /&gt;
+    &lt;/div&gt;
+  );
+}
+          </pre>
+          </div>
+          <div class="col-md-7">
+            <p><b>Props:</b> </br>
+              Remember, conceptually, components are like JavaScript functions.
+              They accept arbitrary inputs called <b style="color:darkblue">"props"</b> and return React elements
+              describing what should appear on the screen</p>
+            <p><b>Props are Read-Only:</b> </br>
+              Whether a component is declared as a function or a class, it must <em>never modify its own props</em>
+            </p>
+            <p><b>Props are always passed in from parent:</b></p>
+            <img src="images/props.png" style="width:50%" />
+          </div>
+        </div>
+      </article>
+    </slide>
+
+
+    <script>
+      $(document).ready(function () {
+        $("#expropval").exPresenter({
+          directory: "examples/propsval/",
+          codeClass: "prettyprint pre18",
+          codeStyle: "float:left;margin-right:5px;margin-bottom:5px;width:60%;min-height: 300px;background-color:white;",
+          presenterStyle: "float:right;width:35%;height: 150px;margin-bottom:10px;",
+          commentStyle: "float:right;width:35%;font-size:20px;"
+        });
+      });
+    </script>
+    
+    <slide>
+      <hgroup>
+        <h2>Props, Validation and Default values</h2>
+      </hgroup>
+      <article>
+        <div style="font-size: 0.8em;margin-top: -30px;">
+          <p><b>Typechecking With PropTypes</b></p>
+          <p>
+            You can catch a lot of bugs with typechecking, either by using
+            extensions like <b>TypeScript</b> or <b>Flow</b> or without those,
+            React even has some built-in typechecking abilities. </br>
+            To run typechecking on the props for a component, you can assign the special propTypes property:
+
+          </p>
+          <p><b>Default Prop Values:</b></p>
+          <p>
+            You can define default values for your props by assigning to the special <b>defaultProps</b> property
+          </p>
+        </div>
+        <div>
+          <div id="expropval"></div>
+        </div>
+      </article>
+    </slide>
+  
+
+    <script>
+      $(document).ready(function () {
+        $("#ex1").exPresenter({
+          directory: "examples/state/",
+          codeClass: "prettyprint pre16",
+          codeStyle: "float:left;margin-right:5px;margin-bottom:5px;width:60%;min-height: 300px;background-color:white;",
+          presenterStyle: "float:right;width:35%;height: 75px;margin-bottom:10px;",
+          commentStyle: "float:right;width:35%;font-size:20px;"
+        });
+      });
+    </script>
+
+   
+
+
+    <slide class="backdrop"></slide>
+
+  </slides>
+
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+<script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+
+</html>
