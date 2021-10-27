@@ -519,47 +519,107 @@ var mapArray = names.map(function(name){
 
     <slide>
       <hgroup>
-        <h2>JavaScript Objects</h2>
-
-        <h3>Working with Objects</h3>
+        <h2>JavaScript Objects 1</h2>
       </hgroup>
 
       <article>
-
-        <p style="color: #000066;margin-top:-30px;">
-          Create an object named myCar and give it properties named make, model, </p>
-
-
+        <p style=margin-top:-30px;margin-bottom:3px;">
+          Create an object named myCar and give it properties named make, model </p>
         <pre class="prettyprint">
-let myCar = new Object();
-<b>myCar = {} //Alternative notation (preferred)</b>
-myCar.make = "Ford";
-myCar.model = "Mustang";
-myCar.year = 1969;    </pre>
-        <p style="color: #000066;">Properties of JavaScript objects can also be accessed or set using a bracket
-          notation.
-          Objects are sometimes called associative arrays,
-          since each property is associated with a string value that can be used to access it</p>
-        <pre class="prettyprint">
-myCar["make"] = "Ford";
-myCar["model"] = "Mustang";
-myCar["year"] = 1969;
-      </pre>
+const myCar = {
+   make: "Ford",
+   model: "Mustang",
+   year: 1969
+}
+myCar.make = "Volvo" //Set field value
+const make = myCar.make // Read field value    </pre>
+        <div class="build">
+          <div>
+            <p style=margin-top:-5px;margin-bottom:3px;"> We can just add fields when they are needed </p>
+            <pre class="prettyprint">
+<b>const myCar = {} </b>
+myCar.make = "Ford"
+myCar.model = "Mustang"
+myCar.year = 1969    </pre>
+          </div>
+        </div>
+        <div class="build">
+          <div>
+            <p style=margin-top:-5px;margin-bottom:3px;">We can even remove existing fields from an object.</p>
+            <pre class="prettyprint">
+delete myCar.year
+//<i>Don't do this on predefined JS-objects</i></pre>
+          </div>
+        </div>
       </article>
     </slide>
 
     <slide>
       <hgroup>
-        <h2>Creating new objects</h2>
-        <h3> We can create new objects in more than one way:</h3>
+        <h2>JavaScript Objects 2</h2>
       </hgroup>
 
       <article>
-        <p style="margin-top: -35px;margin-bottom: 5px;">Using an Object Initializer</p>
+
+        <p style=margin-top:-30px;margin-bottom:3px;">
+          Properties of JavaScript objects can also be used using bracket notation, almost like a hashMap in
+          Java (modern JS includes Map and Set colllection types).
+        </p>
+        <pre class="prettyprint">
+myCar["make"] = "Ford";
+myCar["model"] = "Mustang";
+myCar["year"] = 1969;</pre>
+
+        <div class="build">
+          <div>
+            <p style=margin-top:-5px;margin-bottom:3px;">This way we can access fields programatically.</p>
+            <pre class="prettyprint">
+const fieldName = "make" //or "Model" or "Year"
+myCar[fieldName] = "Volvo";
+console.log(myCar[fieldName])</pre>
+          </div>
+        </div>
+        <div class="build">
+          <div>
+            <p style=margin-top:-5px;margin-bottom:3px;">Using the <code>for..in</code> construct we can iterate over
+              properties in an object</p>
+            <pre class="prettyprint">
+delete myCar.year
+for (const property in myCar) {
+  console.log(`${property}: ${myCar[property]}`);
+}
+// Will print (since we deleted the year property):
+//make: Ford
+//model: Mustang
+</pre>
+          </div>
+        </div>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>JavaScript Objects 3</h2>
+      </hgroup>
+      <article>
+        <p>Lets try all of this :-) </p>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Creating objects in more than one way:</h3>
+      </hgroup>
+
+      <article>
+
+        <p style="margin-top: -35px;margin-bottom: 5px;">Using an Object Initializer (Examples so far)</p>
         <pre class="prettyprint">
 var myHonda = {color: "red", wheels: 4, engine: {cylinders: 4, size: 2.2}}; </pre>
-        <p style="margin-bottom: 5px;">Using a constructor function (The OLD ES5 way)</p>
-        <pre class="prettyprint">
+        <div class="build">
+          <div>
+            <p style="margin-bottom: 5px;">Using a constructor function (The <b>OOOOLD</b> ES5 way)</p>
+            <pre class="prettyprint">
 function Car(make, model, year) {   //The Constructor function
   this.make = make;
   this.model = model;
@@ -568,10 +628,21 @@ function Car(make, model, year) {   //The Constructor function
 //Creating instances
 var car1 = new Car("Volvo", "V70", 2005);
 var car1 = new Car("Volvo", "244", 1988);</pre>
-        <p style="margin-bottom: 12px;">I will NOT cover Using ES6+next Classes</p>
-
-
-        <footer style="margin-top:10px;" class="source"><a
+          </div>
+        </div>
+        <div class="build">
+          <div>
+            <p style=margin-top:-5px;margin-bottom:3px;">JavaScript (pre ES6) have <b>classes and objects</b> almost
+              similar to Java (<b>but only ALMOST</b>).
+              <b>I will not cover ES6 classes</b>, but you will often find yourself in situation where you need to
+              create
+              instances
+              like:
+            </p>
+            <pre class="prettyprint">const date = new Date()</pre>
+          </div>
+        </div>
+        <footer style="margin-top:20px;" class="source"><a
             href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Source</a>
         </footer>
       </article>
