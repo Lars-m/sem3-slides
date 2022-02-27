@@ -3,7 +3,7 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'JavaScript',
     subtitle: 'Understanding JavaScript',
-    date: 'Fall - 2021',
+    date: 'Spring - 2022',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
