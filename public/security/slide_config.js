@@ -3,7 +3,7 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'Security',
     subtitle: 'Authentication in SinglePage/App-Applications and handling passwords',
-    date: 'Spring - 2018',
+    date: 'Spring - 2022',
     //eventInfo: {
     //  title: 'Google I/O',
     //  date: '6/x/2013'
