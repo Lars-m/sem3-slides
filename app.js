@@ -40,7 +40,7 @@ app.get("/jwt", function (req, res) {
   var exp = iat + (60 * 5);
   var payload = {
     aud: "Only Meant for a JWT demo",
-    iss: "lam@cphbusiness.dk",
+    iss: "lmor@kea.dk",
     iat: iat,
     exp: exp,
     sub: "lam",
